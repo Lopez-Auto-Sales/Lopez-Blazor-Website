@@ -1,0 +1,102 @@
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+
+
+html, body, app {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: lightgray;
+}
+
+.navbar {
+    background-color: skyblue;
+    padding: 0 8%;
+}
+
+    .navbar .navbar-brand {
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+    }
+
+        .navbar .navbar-brand img{
+            height: 3em;
+            margin-right: .5em;
+        }
+
+    .navbar .oi {
+        width: 2rem;
+        font-size: 1.1rem;
+        vertical-align: text-top;
+        top: -2px;
+    }
+
+.content {
+    flex: 1;
+    padding: 2% 5%;
+}
+
+    .content h1{
+        text-align: center;
+    }
+
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+    padding: 1%;
+    margin-right: 1%;
+}
+
+    .nav-item a {
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+        .nav-item a.active {
+            background-color: rgba(255,255,255,0.25);
+        }
+
+        .nav-item a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+.navbar-nav{
+    flex-direction: row;
+}
+
+    .navbar-nav .nav-link{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar .collapse {
+        display: flex;
+    }
+}
+
+footer {
+    margin-bottom: 1%;
+}
+
+    footer p{
+        margin: 0;
+        text-align: center;
+        font-size: small;
+    }
+
+    footer a, footer a:hover, footer a:focus{
+        color: black;
+        text-decoration: none;
+    }
