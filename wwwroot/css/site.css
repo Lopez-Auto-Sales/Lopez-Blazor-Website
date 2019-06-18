@@ -72,6 +72,20 @@ html, body, app {
         padding-right: 1em;
     }
 
+.jumbotron p{
+    margin-bottom: 0;
+}
+
+.resizable {
+    width: 100%;
+    height: 30em;
+}
+
+    .resizable iframe{
+        width: 100%;
+        height: 100%;
+    }
+
 @media (min-width: 768px) {
     .navbar {
         flex-direction: row;
