@@ -21,13 +21,11 @@ steps:
     # Important: If you zip the publish, the GitHub Pages script will need to unzip it first
     zipAfterPublish: false
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory)/Client
     artifactName: 'Dist'
-
 - script: |
     git config --global user.name "$NAME"
     git config --global user.email "$EMAIL"
