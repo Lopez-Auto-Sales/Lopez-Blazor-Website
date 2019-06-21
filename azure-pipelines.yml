@@ -22,14 +22,11 @@ steps:
     zipAfterPublish: false
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory)/Client
-    artifactName: 'Dist'
   displayName: 'Publish Artifacts'
 - script: |
     git config --global user.name "$NAME"
     git config --global user.email "$EMAIL"
-    cd $(Build.ArtifactStagingDirectory)/Client/Client/dist
+    cd $(Build.ArtifactStagingDirectory)/dist
     git init
     git checkout -b gh-pages
     git add -A
