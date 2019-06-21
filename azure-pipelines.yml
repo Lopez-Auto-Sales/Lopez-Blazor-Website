@@ -30,7 +30,7 @@ steps:
 - script: |
     git config --global user.name "$NAME"
     git config --global user.email "$EMAIL"
-    cd $(Build.ArtifactStagingDirectory)/dist
+    cd $(Build.ArtifactStagingDirectory)/Dist/s/LopezBlazorWebsite/dist
     git init
     git checkout -b gh-pages
     git add -A
