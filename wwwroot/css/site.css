@@ -100,6 +100,14 @@ html, body, app {
     }
 }
 
+.grid{
+    text-align: center;
+}
+
+    .grid .figures .figure{
+        margin: 1%;
+    }
+
 footer {
     margin-bottom: 1%;
 }
