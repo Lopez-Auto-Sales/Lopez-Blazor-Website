@@ -13,6 +13,7 @@ steps:
 - task: DotNetCoreInstaller@0
   displayName: 'Installing .NET Core SDK...'
   inputs:
+    packageType: 'sdk'
     version: 3.0.100-preview6-012264
 - task: DotNetCoreCLI@2
   displayName: Publish App
@@ -23,10 +24,13 @@ steps:
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'
+  inputs:
+    pathtoPublish: $(Build.ArtifactStagingDirectory)/Client
+    artifactName: 'Dist'
 - script: |
     git config --global user.name "$NAME"
     git config --global user.email "$EMAIL"
-    cd $(Build.ArtifactStagingDirectory)/dist
+    cd $(Build.ArtifactStagingDirectory)/Client/Client/dist
     git init
     git checkout -b gh-pages
     git add -A
