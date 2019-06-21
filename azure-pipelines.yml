@@ -25,12 +25,12 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'
   inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory)/Client
+    pathtoPublish: $(Build.ArtifactStagingDirectory)/LopezBlazorWebsite
     artifactName: 'Dist'
 - script: |
     git config --global user.name "$NAME"
     git config --global user.email "$EMAIL"
-    cd $(Build.ArtifactStagingDirectory)/Client/Client/dist
+    cd $(Build.ArtifactStagingDirectory)/LopezBlazorWebsite/Client/dist
     git init
     git checkout -b gh-pages
     git add -A
