@@ -34,6 +34,23 @@
     "price": 3800.0000
   },
   {
+    "year": 2006,
+    "make": "Honda",
+    "model": "Civic",
+    "series": null,
+    "color": "Black",
+    "vin": "2HGFG12826H525954",
+    "driveType": null,
+    "vehicleType": "Passenger Car",
+    "isSalvage": false,
+    "fuelType": "Gasoline",
+    "displacement": "1.802577040",
+    "numDoors": 2,
+    "numCylinders": 4,
+    "mileage": 232296,
+    "price": 3800.0000
+  },
+  {
     "year": 2001,
     "make": "Ford",
     "model": "Focus",
