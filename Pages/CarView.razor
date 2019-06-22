@@ -1,4 +1,4 @@
-﻿@page "/{VIN}"
+﻿@page "/car/{VIN}"
 @inject HttpClient Http;
 
 @if (Car != null)
@@ -50,12 +50,5 @@ else
                 return;
             }
         }
-    }
-
-    public override Task SetParametersAsync(ParameterCollection parameters)
-    {
-        //resets parameter to avoid refresh bug
-        VIN = null;
-        return base.SetParametersAsync(parameters);
     }
 }
