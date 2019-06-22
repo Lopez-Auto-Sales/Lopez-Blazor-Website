@@ -10,6 +10,7 @@ html, body, app {
 .navbar {
     background-color: skyblue;
     padding: 0 8%;
+    width: 100%;
 }
 
     .navbar .navbar-brand {
