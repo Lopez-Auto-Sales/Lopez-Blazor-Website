@@ -32,7 +32,7 @@ html, body, app {
 
 .content {
     flex: 1;
-    padding: 2% 5%;
+    padding: 1% 3%;
 }
 
     .content h1{
@@ -100,13 +100,17 @@ html, body, app {
     }
 }
 
-.grid{
+.figures{
     text-align: center;
 }
 
-    .grid .figures .figure{
+    .figures .figure{
         margin: 1%;
     }
+
+        .figures .figure .figure-caption{
+            text-align: left;
+        }
 
 footer {
     margin-bottom: 1%;

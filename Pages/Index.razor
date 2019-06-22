@@ -3,21 +3,18 @@
 
 <h1>Inventory</h1>
 
-<div class="grid">
-    <div class="figures">
-        @if (Cars != null)
+<div class="figures">
+    @if (Cars != null)
+    {
+        @foreach (Car car in Cars)
         {
-            @foreach (Car car in Cars)
-            {
-                <figure class="figure">
-                    <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption">@car.Name</figcaption>
-                </figure>
-            }
+            <figure class="figure">
+                <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
+                <figcaption class="figure-caption">@car.Name</figcaption>
+            </figure>
         }
-    </div>
+    }
 </div>
-
 
 @functions {
     //Cars folder in wwroot should have all Car Image files
