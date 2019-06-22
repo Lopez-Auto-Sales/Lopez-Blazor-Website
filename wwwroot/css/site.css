@@ -105,11 +105,6 @@ html, body, app {
     padding-right: 0;
 }
 
-    .card img{
-        height: 100%;
-        width: 100%;
-    }
-
 .figures{
     display: flex;
     flex-wrap: wrap;
