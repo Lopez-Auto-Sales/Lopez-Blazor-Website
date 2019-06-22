@@ -34,14 +34,22 @@ else
 @functions {
     [Parameter]
     private string VIN { get; set; }
-    private Car[] Cars;
-    private Car Car { get; set; }
+    [CascadingParameter]
+    private Car[] Cars { get; set; }
+    private Car Car = null;
+    private int index = -1;
 
-    protected override async Task OnInitAsync()
+    protected override void OnInit()
     {
-        Cars = await Http.GetJsonAsync<Car[]>("./Data/cars.json");
-        Car = Cars.Single(c => c.VIN == VIN);
-        StateHasChanged();
+        for(int i = 0; i < Cars.Length; i++)
+        {
+            if (Cars[i].VIN == VIN)
+            {
+                Car = Cars[i];
+                index = i;
+                return;
+            }
+        }
     }
 
     public override Task SetParametersAsync(ParameterCollection parameters)

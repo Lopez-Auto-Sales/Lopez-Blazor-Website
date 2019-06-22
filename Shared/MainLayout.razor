@@ -1,9 +1,25 @@
 @inherits LayoutComponentBase
+@inject HttpClient  Http
 
 <NavMenu />
 
-<div class="content">
-    @Body
-</div>
+@if (Cars != null)
+{
+    <CascadingValue Value="@Cars">
+        <div class="content">
+            @Body
+        </div>
+    </CascadingValue>
+}
 
 <InfoFooter />
+
+@functions {
+    private Car[] Cars;
+
+    protected override async Task OnInitAsync()
+    {
+        Cars = await Http.GetJsonAsync<Car[]>("./Data/cars.json");
+        StateHasChanged();
+    }
+}

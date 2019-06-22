@@ -1,16 +1,14 @@
 ﻿@page "/"
-@inject HttpClient  Http;
 @inject IUriHelper uriHelper
 
 <h1>Inventory</h1>
 
 <div class="figures">
-    @if (Cars != null)
         @foreach (Car car in Cars)
         {
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                 <figure class="figure">
-                    <button type="button" class="btn btn-light" onclick="@(e=>Route(car.VIN))">
+                    <button type="button" class="btn btn-light" onclick="@(e => Route(car.VIN))">
                         <figcaption class="figure-caption">@car.Name</figcaption>
                         <figcaption class="figure-caption">$@car.Price.ToString("N0")</figcaption>
                         <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
@@ -21,20 +19,11 @@
 </div>
 
 @functions {
-    //Cars folder in wwroot should have all Car Image files
-    //Cars/Data folder should contain json containing image path and data
-    Car[] Cars;
-
-    protected override async Task OnInitAsync()
-    {
-        Cars = await Http.GetJsonAsync<Car[]>("./Data/cars.json");
-        StateHasChanged();
-    }
+    [CascadingParameter]
+    private Car[] Cars { get; set; }
 
     private void Route(string VIN)
     {
         uriHelper.NavigateTo($"/{VIN}");
     }
-
-    //TODO: FIX JSON CAMEL CASE & NO HEADER, TITLE CASE JSON, IF FILE EXISTS
 }

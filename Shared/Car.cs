@@ -1,4 +1,4 @@
-﻿namespace LopezBlazorWebsite.Pages
+﻿namespace LopezBlazorWebsite.Shared
 {
     public class Car
     {
