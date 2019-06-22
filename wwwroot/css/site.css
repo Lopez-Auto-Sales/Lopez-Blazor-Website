@@ -126,7 +126,6 @@ html, body, app {
     }
 
 footer {
-    margin-bottom: 1%;
 }
 
     footer p{
@@ -139,3 +138,8 @@ footer {
         color: black;
         text-decoration: none;
     }
+
+.lastmodified{
+    font-size: x-small;
+    margin-left: 1%;
+}
