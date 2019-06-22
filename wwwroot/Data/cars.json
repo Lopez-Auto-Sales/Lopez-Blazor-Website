@@ -1,5 +1,21 @@
 [
   {
+    "year": 2000,
+    "make": "Dodge",
+    "model": "Dakota",
+    "series": null,
+    "color": "Yellow",
+    "vin": "1B7GL22X6YS572573",
+    "driveType": "4X2",
+    "vehicleType": "Truck ",
+    "isSalvage": false,
+    "fuelType": "Gasoline",
+    "displacement": "3.9",
+    "numDoors": 2,
+    "numCylinders": 6,
+    "price": 3950.0000
+  },
+  {
     "year": 2007,
     "make": "Dodge",
     "model": "Durango",
@@ -14,6 +30,22 @@
     "numDoors": 4,
     "numCylinders": 8,
     "price": 3800.0000
+  },
+  {
+    "year": 2001,
+    "make": "Ford",
+    "model": "Focus",
+    "series": "Se",
+    "color": "Maroon",
+    "vin": "1FAFP34301W266215",
+    "driveType": null,
+    "vehicleType": "Passenger Car",
+    "isSalvage": false,
+    "fuelType": "Gasoline",
+    "displacement": "2.0",
+    "numDoors": 4,
+    "numCylinders": 4,
+    "price": 3100.0000
   },
   {
     "year": 2008,
@@ -32,6 +64,38 @@
     "price": 5300.0000
   },
   {
+    "year": 2009,
+    "make": "Gmc",
+    "model": "Acadia",
+    "series": "1/2 Ton",
+    "color": "Silver",
+    "vin": "1GKEV23D79J108760",
+    "driveType": "Awd/All Wheel Drive",
+    "vehicleType": "Multipurpose Passenger Vehicle (Mpv)",
+    "isSalvage": false,
+    "fuelType": "Gasoline",
+    "displacement": "3.6",
+    "numDoors": 4,
+    "numCylinders": 6,
+    "price": 7950.0000
+  },
+  {
+    "year": 2011,
+    "make": "Chevrolet",
+    "model": "Traverse",
+    "series": null,
+    "color": "Silver",
+    "vin": "1GNKREED8BJ263655",
+    "driveType": "Fwd/Front Wheel Drive",
+    "vehicleType": "Multipurpose Passenger Vehicle (Mpv)",
+    "isSalvage": false,
+    "fuelType": "Gasoline",
+    "displacement": "3.6",
+    "numDoors": 4,
+    "numCylinders": 6,
+    "price": 7950.0000
+  },
+  {
     "year": 2011,
     "make": "Jeep",
     "model": "Liberty/Cherokee",
@@ -48,36 +112,20 @@
     "price": 7200.0000
   },
   {
-    "year": 2008,
-    "make": "Jeep",
-    "model": "Compass",
-    "series": "Mk",
-    "color": "Red",
-    "vin": "1J8FF47W78D517478",
-    "driveType": "4Wd/4-Wheel Drive/4X4",
-    "vehicleType": "Multipurpose Passenger Vehicle (Mpv)",
-    "isSalvage": false,
-    "fuelType": "Gasoline",
-    "displacement": "2.4",
-    "numDoors": null,
-    "numCylinders": 4,
-    "price": 3650.0000
-  },
-  {
-    "year": 2000,
-    "make": "Dodge",
-    "model": "Dakota",
+    "year": 2012,
+    "make": "Nissan",
+    "model": "Altima",
     "series": null,
-    "color": "Yellow",
-    "vin": "1B7GL22X6YS572573",
+    "color": "Blue",
+    "vin": "1N4AL2AP0CC137872",
     "driveType": "4X2",
-    "vehicleType": "Truck ",
-    "isSalvage": false,
+    "vehicleType": "Passenger Car",
+    "isSalvage": true,
     "fuelType": "Gasoline",
-    "displacement": "3.9",
-    "numDoors": 2,
-    "numCylinders": 6,
-    "price": 3950.0000
+    "displacement": "2.5",
+    "numDoors": 4,
+    "numCylinders": 4,
+    "price": 6700.0000
   },
   {
     "year": 2012,
@@ -94,22 +142,6 @@
     "numDoors": 4,
     "numCylinders": 4,
     "price": 6300.0000
-  },
-  {
-    "year": 2012,
-    "make": "Nissan",
-    "model": "Altima",
-    "series": null,
-    "color": "Blue",
-    "vin": "1N4AL2AP0CC137872",
-    "driveType": "4X2",
-    "vehicleType": "Passenger Car",
-    "isSalvage": true,
-    "fuelType": "Gasoline",
-    "displacement": "2.5",
-    "numDoors": 4,
-    "numCylinders": 4,
-    "price": 6700.0000
   },
   {
     "year": 2008,
@@ -176,22 +208,6 @@
     "price": 2800.0000
   },
   {
-    "year": 1997,
-    "make": "Chevrolet",
-    "model": "Suburban",
-    "series": "1500 (1/2 Ton)",
-    "color": "Maroon",
-    "vin": "3GNFK16R0VG177240",
-    "driveType": "4Wd/4-Wheel Drive/4X4",
-    "vehicleType": "Multipurpose Passenger Vehicle (Mpv)",
-    "isSalvage": false,
-    "fuelType": "Gasoline",
-    "displacement": "5.7",
-    "numDoors": null,
-    "numCylinders": 8,
-    "price": 1600.0000
-  },
-  {
     "year": 2010,
     "make": "Dodge",
     "model": "Journey",
@@ -208,6 +224,22 @@
     "price": 5300.0000
   },
   {
+    "year": 1997,
+    "make": "Chevrolet",
+    "model": "Suburban",
+    "series": "1500 (1/2 Ton)",
+    "color": "Maroon",
+    "vin": "3GNFK16R0VG177240",
+    "driveType": "4Wd/4-Wheel Drive/4X4",
+    "vehicleType": "Multipurpose Passenger Vehicle (Mpv)",
+    "isSalvage": false,
+    "fuelType": "Gasoline",
+    "displacement": "5.7",
+    "numDoors": null,
+    "numCylinders": 8,
+    "price": 1600.0000
+  },
+  {
     "year": 2008,
     "make": "Nissan",
     "model": "Sentra",
@@ -222,22 +254,6 @@
     "numDoors": 4,
     "numCylinders": 4,
     "price": 4900.0000
-  },
-  {
-    "year": 2001,
-    "make": "Ford",
-    "model": "Focus",
-    "series": "Se",
-    "color": "Maroon",
-    "vin": "1FAFP34301W266215",
-    "driveType": null,
-    "vehicleType": "Passenger Car",
-    "isSalvage": false,
-    "fuelType": "Gasoline",
-    "displacement": "2.0",
-    "numDoors": 4,
-    "numCylinders": 4,
-    "price": 3100.0000
   },
   {
     "year": 2011,
@@ -270,22 +286,6 @@
     "numDoors": 4,
     "numCylinders": 4,
     "price": 5300.0000
-  },
-  {
-    "year": 2009,
-    "make": "Gmc",
-    "model": "Acadia",
-    "series": "1/2 Ton",
-    "color": "Silver",
-    "vin": "1GKEV23D79J108760",
-    "driveType": "Awd/All Wheel Drive",
-    "vehicleType": "Multipurpose Passenger Vehicle (Mpv)",
-    "isSalvage": false,
-    "fuelType": "Gasoline",
-    "displacement": "3.6",
-    "numDoors": 4,
-    "numCylinders": 6,
-    "price": 7950.0000
   },
   {
     "year": 2010,
