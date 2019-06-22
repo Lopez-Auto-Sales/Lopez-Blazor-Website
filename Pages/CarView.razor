@@ -1,4 +1,4 @@
-﻿@page "/car/{VIN}"
+﻿@page "/{vin}"
 @inject HttpClient Http;
 
 @if (Car != null)
@@ -33,7 +33,7 @@ else
 
 @functions {
     [Parameter]
-    private string VIN { get; set; }
+    private string vin { get; set; }
     [CascadingParameter]
     private Car[] Cars { get; set; }
     private Car Car = null;
@@ -43,7 +43,7 @@ else
     {
         for(int i = 0; i < Cars.Length; i++)
         {
-            if (Cars[i].VIN == VIN)
+            if (Cars[i].VIN == vin)
             {
                 Car = Cars[i];
                 index = i;
