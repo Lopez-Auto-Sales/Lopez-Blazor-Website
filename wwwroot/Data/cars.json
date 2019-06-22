@@ -13,6 +13,7 @@
     "displacement": "3.9",
     "numDoors": 2,
     "numCylinders": 6,
+    "mileage": 156167,
     "price": 3950.0000
   },
   {
@@ -29,6 +30,7 @@
     "displacement": "4.7",
     "numDoors": 4,
     "numCylinders": 8,
+    "mileage": 206894,
     "price": 3800.0000
   },
   {
@@ -45,6 +47,7 @@
     "displacement": "2.0",
     "numDoors": 4,
     "numCylinders": 4,
+    "mileage": 125647,
     "price": 3100.0000
   },
   {
@@ -61,6 +64,7 @@
     "displacement": "2.3",
     "numDoors": 4,
     "numCylinders": 4,
+    "mileage": 152521,
     "price": 5300.0000
   },
   {
@@ -77,6 +81,7 @@
     "displacement": "3.6",
     "numDoors": 4,
     "numCylinders": 6,
+    "mileage": 153193,
     "price": 7950.0000
   },
   {
@@ -93,6 +98,7 @@
     "displacement": "3.6",
     "numDoors": 4,
     "numCylinders": 6,
+    "mileage": 163572,
     "price": 7950.0000
   },
   {
@@ -109,6 +115,7 @@
     "displacement": "3.7",
     "numDoors": 4,
     "numCylinders": 6,
+    "mileage": 174151,
     "price": 7200.0000
   },
   {
@@ -125,6 +132,7 @@
     "displacement": "2.5",
     "numDoors": 4,
     "numCylinders": 4,
+    "mileage": 98911,
     "price": 6700.0000
   },
   {
@@ -141,6 +149,7 @@
     "displacement": "2.5",
     "numDoors": 4,
     "numCylinders": 4,
+    "mileage": 143803,
     "price": 6300.0000
   },
   {
@@ -157,6 +166,7 @@
     "displacement": "3.6",
     "numDoors": 4,
     "numCylinders": 6,
+    "mileage": 167734,
     "price": 5200.0000
   },
   {
@@ -173,6 +183,7 @@
     "displacement": "4.6",
     "numDoors": 4,
     "numCylinders": 8,
+    "mileage": 186637,
     "price": 2400.0000
   },
   {
@@ -189,6 +200,7 @@
     "displacement": "5.9",
     "numDoors": null,
     "numCylinders": 6,
+    "mileage": 249534,
     "price": 6300.0000
   },
   {
@@ -205,6 +217,7 @@
     "displacement": "2.4",
     "numDoors": null,
     "numCylinders": 4,
+    "mileage": 129892,
     "price": 2800.0000
   },
   {
@@ -221,6 +234,7 @@
     "displacement": "3.5",
     "numDoors": null,
     "numCylinders": 6,
+    "mileage": 151876,
     "price": 5300.0000
   },
   {
@@ -237,6 +251,7 @@
     "displacement": "5.7",
     "numDoors": null,
     "numCylinders": 8,
+    "mileage": 217314,
     "price": 1600.0000
   },
   {
@@ -253,6 +268,7 @@
     "displacement": "2.0",
     "numDoors": 4,
     "numCylinders": 4,
+    "mileage": 151087,
     "price": 4900.0000
   },
   {
@@ -269,6 +285,7 @@
     "displacement": "1.8",
     "numDoors": 4,
     "numCylinders": 4,
+    "mileage": 124942,
     "price": 3200.0000
   },
   {
@@ -285,6 +302,7 @@
     "displacement": "2.4",
     "numDoors": 4,
     "numCylinders": 4,
+    "mileage": 164126,
     "price": 5300.0000
   },
   {
@@ -301,6 +319,7 @@
     "displacement": "1.8",
     "numDoors": 4,
     "numCylinders": null,
+    "mileage": 111925,
     "price": 5900.0000
   }
 ]

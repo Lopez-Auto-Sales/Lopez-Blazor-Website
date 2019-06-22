@@ -15,9 +15,15 @@
         public string Displacement { get; set; }
         public int? NumDoors { get; set; }
         public int? NumCylinders { get; set; }
+        public int? Mileage { get; set; }
         public decimal Price { get; set; }
 
         public string Path { get { return "./CarImages/" + VIN + ".jpg"; } }
         public string Name { get { return string.Format("{0} {1} {2}",Year, Make, Model); } }
+        public override string ToString()
+        {
+            return VIN;
+        }
+        public string MileageString { get { return Mileage == null ? "Exempt" : Mileage.Value.ToString("N0"); } }
     }
 }

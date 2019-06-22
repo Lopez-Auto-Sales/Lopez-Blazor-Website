@@ -100,11 +100,29 @@ html, body, app {
     }
 }
 
+.card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+    .card img{
+        height: 100%;
+        width: 100%;
+    }
+
 .figures{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
 }
+
+    .figures .btn{
+        padding: 0;
+    }
+
+    .figures .figure-img{
+        margin-bottom: 0;
+    }
 
     .figures .figure-caption{
         text-align: left;
