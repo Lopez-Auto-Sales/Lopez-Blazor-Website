@@ -101,11 +101,6 @@ html, body, app {
         font-weight: bold;
     }
 
-.carimg{
-    max-height: 1080px;
-    width: auto;
-}
-
 .figures{
     display: flex;
     flex-wrap: wrap;
