@@ -1,5 +1,6 @@
 ﻿@page "/{vin}"
 @inject HttpClient Http;
+@inject IJSRuntime JSRuntime
 
 @if (Car != null)
 {
@@ -41,7 +42,7 @@ else
 
     protected override void OnInit()
     {
-        for(int i = 0; i < Cars.Length; i++)
+        for (int i = 0; i < Cars.Length; i++)
         {
             if (Cars[i].VIN == vin)
             {
@@ -50,5 +51,10 @@ else
                 return;
             }
         }
+    }
+
+    protected override async Task OnInitAsync()
+    {
+        await JSRuntime.InvokeAsync<string>("scrollTo", 0, 0);
     }
 }
