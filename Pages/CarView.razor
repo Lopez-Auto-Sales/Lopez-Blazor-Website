@@ -15,13 +15,15 @@
                 <li class="list-group-item">Series: @Car.Series</li>
             }
             <li class="list-group-item">VIN: @Car.VIN</li>
-            <li class="list-group-item">Is Salvage: @Car.IsSalvage</li>
+            @if (Car.IsSalvage)
+            {
+                <li class="list-group-item">Salvage Title</li>
+            }
             @if (Car.DriveType != null)
             {
                 <li class="list-group-item">Drive Type: @Car.DriveType</li>
             }
-            <li class="list-group-item">Vehicle Type: @Car.VehicleType</li>
-            <li class="list-group-item">Displacement (L): @Car.Displacement</li>
+            <li class="list-group-item">Displacement: @Car.Displacement L</li>
             <li class="list-group-item">Number of Cylinders: @Car.NumCylinders</li>
             @if (Car.NumDoors != null)
             {
