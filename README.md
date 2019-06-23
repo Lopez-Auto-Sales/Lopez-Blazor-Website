@@ -1,5 +1,5 @@
 # Lopez Auto Sales Website [![Build Status](https://dev.azure.com/ismellike0193/ismellike/_apis/build/status/lopezautosales.Lopez-Blazor-Website?branchName=master)](https://dev.azure.com/ismellike0193/ismellike/_build/latest?definitionId=1&branchName=master)
-Used car dealership website developed with Blazor and hosted on GitHub pages
+Used car dealership SPA website developed with client-side Blazor and hosted on GitHub pages.
 
 Click on the badge to view: [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://lopezautosales.company)
 
