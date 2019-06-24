@@ -357,23 +357,6 @@
     "price": 3200.0000
   },
   {
-    "year": 2005,
-    "make": "Toyota",
-    "model": "Camry",
-    "series": "Acv30l/Mcv30l/Mcv31l",
-    "color": "Gold",
-    "vin": "4T1BE32K25U07081W",
-    "driveType": "4X2",
-    "vehicleType": "Passenger Car",
-    "isSalvage": false,
-    "fuelType": "Gasoline",
-    "displacement": "2.4",
-    "numDoors": 4,
-    "numCylinders": 4,
-    "mileage": 164126,
-    "price": 5300.0000
-  },
-  {
     "year": 2010,
     "make": "Nissan",
     "model": "Cube",
