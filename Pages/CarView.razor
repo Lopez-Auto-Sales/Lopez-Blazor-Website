@@ -1,13 +1,14 @@
-﻿@page "/{vin}"
+﻿@page "/{VIN}"
 @inject HttpClient Http;
 @inject IJSRuntime JSRuntime
+@inject IUriHelper uriHelper
 
-@if (Car != null)
-{
-    <div class="view ml-auto mr-auto">
+<div class="view ml-auto mr-auto">
+    @if (index >= 0 && index < Cars.Length)
+    {
+        <h1 class="card">@Car.Name</h1>
         <img class="img-top" src="@Car.Path">
         <ul>
-            <li class="list-group-item list-header">@Car.Name</li>
             <li class="list-group-item">Price: $@Car.Price.ToString("N0")</li>
             <li class="list-group-item">Mileage: @Car.MileageString</li>
             @if (Car.Series != null)
@@ -34,29 +35,48 @@
                 <li class="list-group-item">Fuel Type: @Car.FuelType</li>
             }
         </ul>
-    </div>
-}
-else
-{
-
-}
+        <div class="figures justify-content-between">
+            <button type="button" class="btn btn-light" onclick="@(e => SwitchCar(false))">
+                <figure class="figure">
+                    <figcaption class="figure-caption"><span class="oi oi-arrow-thick-left" /></figcaption>
+                    <figcaption class="figure-caption">@PreviousCar.Name</figcaption>
+                    <img src="@PreviousCar.Path" class="figure-img rounded" width="125">
+                </figure>
+            </button>
+            <button type="button" class="btn btn-light" onclick="@(e => SwitchCar(true))">
+                <figure class="figure">
+                    <figcaption class="figure-caption"><span class="oi oi-arrow-thick-right" /></figcaption>
+                    <figcaption class="figure-caption">@NextCar.Name</figcaption>
+                    <img src="@NextCar.Path" class="figure-img rounded" width="125">
+                </figure>
+            </button>
+        </div>
+    }
+    else
+    {
+        <img class="img-top" src="./Images/lemon.png">
+        <h2>The provided VIN in the URL doesn't seem to match any of our current vehicles.</h2>
+        <h2>Go back to our main page to find the vehicle you expected or double check the URL.</h2>
+    }
+</div>
 
 
 @functions {
     [Parameter]
-    private string vin { get; set; }
+    private string VIN { get; set; }
     [CascadingParameter]
     private Car[] Cars { get; set; }
-    private Car Car = null;
+    private Car Car { get { return Cars[mod(index, Cars.Length)]; } }
+    private Car PreviousCar { get { return Cars[mod(index - 1, Cars.Length)]; } }
+    private Car NextCar { get { return Cars[mod(index + 1, Cars.Length)]; } }
     private int index = -1;
 
     protected override void OnInit()
     {
         for (int i = 0; i < Cars.Length; i++)
         {
-            if (Cars[i].VIN == vin)
+            if (Cars[i].VIN == VIN)
             {
-                Car = Cars[i];
                 index = i;
                 return;
             }
@@ -65,6 +85,25 @@ else
 
     protected override async Task OnInitAsync()
     {
+        //initially scroll to top
         await JSRuntime.InvokeAsync<string>("scrollTo", 0, 0);
+    }
+
+    private void SwitchCar(bool toNext)
+    {
+        if (toNext)
+        {
+            index = mod(index + 1, Cars.Length);
+        }
+        else
+        {
+            index = mod(index - 1, Cars.Length);
+        }
+        uriHelper.NavigateTo("/" + Car.VIN);
+    }
+
+    int mod(int x, int m)
+    {
+        return (x % m + m) % m;
     }
 }

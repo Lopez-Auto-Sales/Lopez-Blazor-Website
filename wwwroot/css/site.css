@@ -19,6 +19,7 @@ html, body, app {
         align-items: center;
         margin-right: auto;
         margin-left:auto;
+        flex-wrap: wrap;
     }
 
         .navbar .navbar-brand img{
@@ -116,26 +117,30 @@ html, body, app {
         width: 100%;
     }
 
+.text-align-left{
+    text-align: left;
+}
+
 .figures{
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
 }
-
-    .figures .btn{
-        padding: 0;
+    
+    .figures .figure, .figures .figure-img{
+        margin: 0;
     }
 
-    .figures .figure-img{
-        margin-bottom: 0;
+    .figures .btn, .prevnext .btn{
+        padding: 0;
+        margin-bottom: 1em;
     }
 
     .figures .figure-caption{
-        text-align: left;
         color: black;
     }
 
 footer {
+    margin-bottom: .5em;
 }
 
     footer p{

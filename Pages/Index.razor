@@ -6,15 +6,15 @@
 <div class="figures">
         @foreach (Car car in Cars)
         {
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <figure class="figure">
-                    <button type="button" class="btn btn-light" onclick="@(e => Route(car.VIN))">
-                        <figcaption class="figure-caption">@car.Name</figcaption>
-                        <figcaption class="figure-caption">$@car.Price.ToString("N0")</figcaption>
-                        <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
-                    </button>
-                </figure>
-            </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <button type="button" class="btn btn-light" onclick="@(e => Route(car.VIN))">
+            <figure class="figure">
+                <figcaption class="figure-caption text-align-left">@car.Name</figcaption>
+                <figcaption class="figure-caption text-align-left">$@car.Price.ToString("N0")</figcaption>
+                <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
+            </figure>
+        </button>
+    </div>
         }
 </div>
 
@@ -22,8 +22,8 @@
     [CascadingParameter]
     private Car[] Cars { get; set; }
 
-    private void Route(string VIN)
+    private void Route(string path)
     {
-        uriHelper.NavigateTo("/"+VIN);
+        uriHelper.NavigateTo("/"+path);
     }
 }
