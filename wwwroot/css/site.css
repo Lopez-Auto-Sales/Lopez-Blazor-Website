@@ -124,6 +124,7 @@ html, body, app {
 .figures{
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
 }
     
     .figures .figure, .figures .figure-img{
