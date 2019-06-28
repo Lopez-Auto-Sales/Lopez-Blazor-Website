@@ -2,23 +2,48 @@
 @inject HttpClient  Http
 
 <NavMenu />
-
 @if (Cars != null)
 {
-    <CascadingValue Value="@Cars">
-        <div class="content">
-            @Body
-        </div>
+    <CascadingValue Value="this">
+        <CascadingValue Value="@Cars">
+            <div class="content">
+                @Body
+            </div>
+        </CascadingValue>
     </CascadingValue>
+
 }
 <InfoFooter />
 
 @functions {
     private Car[] Cars;
+    internal int SortedNumber = 0;
 
     protected override async Task OnInitAsync()
     {
         Cars = await Http.GetJsonAsync<Car[]>("./Data/cars.json");
+        SortCars(0);
+    }
+
+    internal void SortCars(int method)
+    {
+        SortedNumber = method;
+        switch (method)
+        {
+            case 0:
+                Cars = Cars.OrderByDescending(car => car.Price).ToArray();
+                break;
+            case 1:
+                Cars = Cars.OrderBy(car => car.Price).ToArray();
+                break;
+            case 2:
+                Cars = Cars.OrderByDescending(car => car.Mileage).ToArray();
+                break;
+            case 3:
+                Cars = Cars.OrderBy(car => car.Mileage).ToArray();
+                break;
+
+        }
         StateHasChanged();
     }
 }

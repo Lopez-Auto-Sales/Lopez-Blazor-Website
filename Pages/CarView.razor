@@ -25,7 +25,10 @@
                 <li class="list-group-item">Drive Type: @Car.DriveType</li>
             }
             <li class="list-group-item">Displacement: @Car.Displacement L</li>
-            <li class="list-group-item">Number of Cylinders: @Car.NumCylinders</li>
+            @if (Car.NumCylinders != null)
+            {
+                <li class="list-group-item">Number of Cylinders: @Car.NumCylinders</li>
+            }
             @if (Car.NumDoors != null)
             {
                 <li class="list-group-item">Number of Doors: @Car.NumDoors</li>

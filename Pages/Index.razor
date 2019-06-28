@@ -2,28 +2,66 @@
 @inject IUriHelper uriHelper
 
 <h1>Inventory</h1>
-
-<div class="figures">
-        @foreach (Car car in Cars)
-        {
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <button type="button" class="btn btn-light" onclick="@(e => Route(car.VIN))">
-            <figure class="figure">
-                <figcaption class="figure-caption text-align-left">@car.Name</figcaption>
-                <figcaption class="figure-caption text-align-left">$@car.Price.ToString("N0")</figcaption>
-                <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
-            </figure>
-        </button>
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group" role="group">
+        <button type="button" class="@ButtonCSS[0]" onclick="@(e => SortCars(0))">Highest Price</button>
+        <button type="button" class="@ButtonCSS[1]" onclick="@(e => SortCars(1))">Lowest Price</button>
+        <button type="button" class="@ButtonCSS[2]" onclick="@(e => SortCars(2))">Highest Mileage</button>
+        <button type="button" class="@ButtonCSS[3]" onclick="@(e => SortCars(3))">Lowest Mileage</button>
     </div>
-        }
+</div>
+<div class="figures">
+    @foreach (Car car in Cars)
+    {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <button type="button" class="btn btn-light" onclick="@(e => Route(car.VIN))">
+                <figure class="figure">
+                    <figcaption class="figure-caption text-align-left">@car.Name</figcaption>
+                    <figcaption class="figure-caption text-align-left">$@car.Price.ToString("N0")</figcaption>
+                    <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
+                </figure>
+            </button>
+        </div>
+    }
 </div>
 
 @functions {
     [CascadingParameter]
     private Car[] Cars { get; set; }
+    [CascadingParameter]
+    private MainLayout layout { get; set; }
+    //initially sorted by highest price defined in mainlayout.razor
+    private string[] ButtonCSS = new string[4];
 
     private void Route(string path)
     {
-        uriHelper.NavigateTo("/"+path);
+        uriHelper.NavigateTo("/" + path);
+    }
+
+    protected override void OnInit()
+    {
+        UpdateCSS(layout.SortedNumber);
+        base.OnInit();
+    }
+
+    private void UpdateCSS(int method)
+    {
+        for (int i = 0; i < ButtonCSS.Length; i++)
+        {
+            if (method == i)
+            {
+                ButtonCSS[i] = "btn btn-secondary active";
+            }
+            else
+            {
+                ButtonCSS[i] = "btn btn-secondary";
+            }
+        }
+    }
+
+    private void SortCars(int method)
+    {
+        UpdateCSS(method);
+        layout.SortCars(method);
     }
 }

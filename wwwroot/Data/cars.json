@@ -1,5 +1,22 @@
 [
   {
+    "year": 2007,
+    "make": "Chevrolet",
+    "model": "Uplander",
+    "series": "1/2 Ton",
+    "color": "Blue",
+    "vin": "1GNDU23197D133906",
+    "driveType": "4X2",
+    "vehicleType": "Multipurpose Passenger Vehicle (Mpv)",
+    "isSalvage": false,
+    "fuelType": null,
+    "displacement": "3.9",
+    "numDoors": 4,
+    "numCylinders": 6,
+    "mileage": 188565,
+    "price": 1700.0000
+  },
+  {
     "year": 2013,
     "make": "Chevrolet",
     "model": "Cruze",
@@ -253,23 +270,6 @@
     "numCylinders": 8,
     "mileage": 186637,
     "price": 2400.0000
-  },
-  {
-    "year": 2001,
-    "make": "Dodge",
-    "model": "Ram",
-    "series": null,
-    "color": "Pewter",
-    "vin": "3B7KC23611G191999",
-    "driveType": "4X2",
-    "vehicleType": "Truck ",
-    "isSalvage": false,
-    "fuelType": "Diesel",
-    "displacement": "5.9",
-    "numDoors": null,
-    "numCylinders": 6,
-    "mileage": 249534,
-    "price": 6300.0000
   },
   {
     "year": 2005,
