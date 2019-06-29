@@ -5,6 +5,6 @@ Blazor utilizes web assembly to provide a responsive single-page application via
 
 Website updates are handled with Azure Pipelines and uploaded to [this repository](https://github.com/lopezautosales/lopezautosales.github.io).
 
-To view the website [click here](http://lopezautosales.company).
+To view the website [click here](http://lopezautosales.com).
 
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
