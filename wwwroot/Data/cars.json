@@ -51,23 +51,6 @@
     "price": 7900.0000
   },
   {
-    "year": 2014,
-    "make": "Dodge",
-    "model": "Challenger",
-    "series": null,
-    "color": "Black",
-    "vin": "2C3CDYBT4EH214388",
-    "driveType": "Rwd/ Rear Wheel Drive",
-    "vehicleType": "Passenger Car",
-    "isSalvage": true,
-    "fuelType": "Gasoline",
-    "displacement": "5.7",
-    "numDoors": 2,
-    "numCylinders": 8,
-    "mileage": 115221,
-    "price": 12900.0000
-  },
-  {
     "year": 2000,
     "make": "Dodge",
     "model": "Dakota",
