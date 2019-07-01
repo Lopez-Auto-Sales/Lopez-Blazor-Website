@@ -17,8 +17,7 @@
         public int? NumCylinders { get; set; }
         public int? Mileage { get; set; }
         public decimal Price { get; set; }
-
-        public string Path { get { return "./CarImages/" + VIN + ".jpg"; } }
+        public string Path { get { return "https://res.cloudinary.com/lopez-auto-sales/image/upload/v1562010324/Cars/" + VIN + ".jpg"; } }
         public string Name { get { return string.Format("{0} {1} {2}",Year, Make, Model); } }
         public override string ToString()
         {
