@@ -17,29 +17,29 @@
 
 @functions {
     private Car[] Cars;
-    internal int SortedNumber = 0;
+    internal SortMethod SortedMethod;
 
     protected override async Task OnInitAsync()
     {
-        Cars = await Http.GetJsonAsync<Car[]>("./Data/cars.json");
-        SortCars(0);
+        Cars = await Http.GetJsonAsync<Car[]>(Constants.JsonPath);
+        SortCars(SortMethod.HighestPrice);
     }
 
-    internal void SortCars(int method)
+    internal void SortCars(SortMethod method)
     {
-        SortedNumber = method;
+        SortedMethod = method;
         switch (method)
         {
-            case 0:
+            case SortMethod.HighestPrice:
                 Cars = Cars.OrderByDescending(car => car.Price).ToArray();
                 break;
-            case 1:
+            case SortMethod.LowestPrice:
                 Cars = Cars.OrderBy(car => car.Price).ToArray();
                 break;
-            case 2:
+            case SortMethod.HighestMileage:
                 Cars = Cars.OrderByDescending(car => car.Mileage).ToArray();
                 break;
-            case 3:
+            case SortMethod.LowestMileage:
                 Cars = Cars.OrderBy(car => car.Mileage).ToArray();
                 break;
 
