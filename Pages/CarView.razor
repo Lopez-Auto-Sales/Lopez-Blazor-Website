@@ -11,31 +11,14 @@
         <ul>
             <li class="list-group-item">Price: $@Car.Price.ToString("N0")</li>
             <li class="list-group-item">Mileage: @Car.MileageString</li>
-            @if (Car.Series != null)
-            {
-                <li class="list-group-item">Series: @Car.Series</li>
-            }
             <li class="list-group-item">VIN: @Car.VIN</li>
             @if (Car.IsSalvage)
             {
                 <li class="list-group-item">Rebuilt Salvage Title</li>
             }
-            @if (Car.DriveType != null)
+            @foreach(JSONExtra extraInfo in Car.Extras)
             {
-                <li class="list-group-item">Drive Type: @Car.DriveType</li>
-            }
-            <li class="list-group-item">Displacement: @Car.Displacement L</li>
-            @if (Car.NumCylinders != null)
-            {
-                <li class="list-group-item">Number of Cylinders: @Car.NumCylinders</li>
-            }
-            @if (Car.NumDoors != null)
-            {
-                <li class="list-group-item">Number of Doors: @Car.NumDoors</li>
-            }
-            @if (Car.FuelType != null)
-            {
-                <li class="list-group-item">Fuel Type: @Car.FuelType</li>
+                <li class="list-group-item">@extraInfo.ToString()</li>
             }
         </ul>
         <div class="figures justify-content-between">
