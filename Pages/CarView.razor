@@ -16,7 +16,7 @@
             {
                 <li class="list-group-item" style="font-weight: bold">Rebuilt Salvage Title</li>
             }
-            @foreach(JSONExtra extraInfo in Car.Extras)
+            @foreach(JSONExtra extraInfo in Car.Extras.OrderBy(extra => extra.Name))
             {
                 <li class="list-group-item">@extraInfo.ToString()</li>
             }
