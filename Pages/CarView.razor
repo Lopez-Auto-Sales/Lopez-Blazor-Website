@@ -9,12 +9,12 @@
         <h1 class="card">@Car.Name</h1>
         <img class="img-top" src="@Car.Path">
         <ul>
-            <li class="list-group-item">Price: $@Car.Price.ToString("N0")</li>
-            <li class="list-group-item">Mileage: @Car.MileageString</li>
-            <li class="list-group-item">VIN: @Car.VIN</li>
+            <li class="list-group-item" style="font-weight: bold">Price: $@Car.Price.ToString("N0")</li>
+            <li class="list-group-item" style="font-weight: bold">Mileage: @Car.MileageString</li>
+            <li class="list-group-item" style="font-weight: bold">VIN: @Car.VIN</li>
             @if (Car.IsSalvage)
             {
-                <li class="list-group-item">Rebuilt Salvage Title</li>
+                <li class="list-group-item" style="font-weight: bold">Rebuilt Salvage Title</li>
             }
             @foreach(JSONExtra extraInfo in Car.Extras)
             {
