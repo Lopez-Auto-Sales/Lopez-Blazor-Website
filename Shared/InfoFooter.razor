@@ -11,4 +11,12 @@
     <a href="mailto:lopezautosales@outlook.com">
         <p>lopezautosales@outlook.com</p>
     </a>
+    <div class="lastmodified">
+        Last Modified Date: @date.ToString("MM/dd/yyyy")
+    </div>
 </footer>
+
+@functions {
+    [Parameter]
+    protected DateTime date { get; set; }
+}

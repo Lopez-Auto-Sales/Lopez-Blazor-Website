@@ -1,7 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LopezBlazorWebsite.Shared
 {
+    public class JSONFile
+    {
+        public Car[] Cars { get; set; }
+        public DateTime Date { get; set; }
+    }
+
     public class Car
     {
         public int Year { get; set; }

@@ -2,26 +2,26 @@
 @inject HttpClient  Http
 
 <NavMenu />
-@if (Cars != null)
+@if (json != null)
 {
     <CascadingValue Value="this">
-        <CascadingValue Value="@Cars">
+        <CascadingValue Value="@json.Cars">
             <div class="content">
                 @Body
             </div>
         </CascadingValue>
     </CascadingValue>
-
+    <InfoFooter date="@json.Date" />
 }
-<InfoFooter />
+
 
 @functions {
-    private Car[] Cars;
+    private JSONFile json = null;
     internal SortMethod SortedMethod;
 
     protected override async Task OnInitAsync()
     {
-        Cars = await Http.GetJsonAsync<Car[]>(Constants.JsonPath);
+        json = await Http.GetJsonAsync<JSONFile>(Constants.JsonPath);
         SortCars(SortMethod.HighestPrice);
     }
 
@@ -31,16 +31,16 @@
         switch (method)
         {
             case SortMethod.HighestPrice:
-                Cars = Cars.OrderByDescending(car => car.Price).ToArray();
+                json.Cars = json.Cars.OrderByDescending(car => car.Price).ToArray();
                 break;
             case SortMethod.LowestPrice:
-                Cars = Cars.OrderBy(car => car.Price).ToArray();
+                json.Cars = json.Cars.OrderBy(car => car.Price).ToArray();
                 break;
             case SortMethod.HighestMileage:
-                Cars = Cars.OrderByDescending(car => car.Mileage).ToArray();
+                json.Cars = json.Cars.OrderByDescending(car => car.Mileage).ToArray();
                 break;
             case SortMethod.LowestMileage:
-                Cars = Cars.OrderBy(car => car.Mileage).ToArray();
+                json.Cars = json.Cars.OrderBy(car => car.Mileage).ToArray();
                 break;
 
         }
