@@ -4,12 +4,10 @@
 <NavMenu />
 @if (json != null)
 {
-    <CascadingValue Value="this">
-        <CascadingValue Value="@json.Cars">
-            <div class="content">
-                @Body
-            </div>
-        </CascadingValue>
+    <CascadingValue Value="@CarManager">
+        <div class="content">
+            @Body
+        </div>
     </CascadingValue>
     <InfoFooter date="@json.Date" />
 }
@@ -17,33 +15,12 @@
 
 @functions {
     private JSONFile json = null;
-    internal SortMethod SortedMethod;
+    private CarManager CarManager = null;
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         json = await Http.GetJsonAsync<JSONFile>(Constants.JsonPath);
-        SortCars(SortMethod.HighestPrice);
-    }
-
-    internal void SortCars(SortMethod method)
-    {
-        SortedMethod = method;
-        switch (method)
-        {
-            case SortMethod.HighestPrice:
-                json.Cars = json.Cars.OrderByDescending(car => car.Price).ToArray();
-                break;
-            case SortMethod.LowestPrice:
-                json.Cars = json.Cars.OrderBy(car => car.Price).ToArray();
-                break;
-            case SortMethod.HighestMileage:
-                json.Cars = json.Cars.OrderByDescending(car => car.Mileage).ToArray();
-                break;
-            case SortMethod.LowestMileage:
-                json.Cars = json.Cars.OrderBy(car => car.Mileage).ToArray();
-                break;
-
-        }
+        CarManager = new CarManager(json.Cars);
         StateHasChanged();
     }
 }

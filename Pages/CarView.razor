@@ -4,32 +4,32 @@
 @inject IUriHelper uriHelper
 
 <div class="view ml-auto mr-auto">
-    @if (index >= 0 && index < Cars.Length)
+    @if (CurrentCar != null)
     {
-        <h1 class="card">@Car.Name</h1>
-        <img class="img-top" src="@Car.Path">
+        <h1 class="card">@CurrentCar.Name</h1>
+        <img class="img-top" src="@CurrentCar.Path">
         <ul>
-            <li class="list-group-item" style="font-weight: bold">Price: $@Car.Price.ToString("N0")</li>
-            <li class="list-group-item" style="font-weight: bold">Mileage: @Car.MileageString</li>
-            <li class="list-group-item" style="font-weight: bold">VIN: @Car.VIN</li>
-            @if (Car.IsSalvage)
+            <li class="list-group-item" style="font-weight: bold">Price: $@CurrentCar.Price.ToString("N0")</li>
+            <li class="list-group-item" style="font-weight: bold">Mileage: @CurrentCar.MileageString</li>
+            <li class="list-group-item" style="font-weight: bold">VIN: @CurrentCar.VIN</li>
+            @if (CurrentCar.IsSalvage)
             {
                 <li class="list-group-item" style="font-weight: bold">Rebuilt Salvage Title</li>
             }
-            @foreach(JSONExtra extraInfo in Car.Extras.OrderBy(extra => extra.Name))
+            @foreach (JSONExtra extraInfo in CurrentCar.Extras.OrderBy(extra => extra.Name))
             {
                 <li class="list-group-item">@extraInfo.ToString()</li>
             }
         </ul>
         <div class="figures justify-content-between">
-            <button type="button" class="btn btn-light" onclick="@(e => SwitchCar(false))">
+            <button type="button" class="btn btn-light" @onclick="@(() => SwitchCar(false))">
                 <figure class="figure">
                     <figcaption class="figure-caption"><span class="oi oi-arrow-thick-left" /></figcaption>
                     <figcaption class="figure-caption">@PreviousCar.Name</figcaption>
                     <img src="@PreviousCar.Path" class="figure-img rounded" width="125">
                 </figure>
             </button>
-            <button type="button" class="btn btn-light" onclick="@(e => SwitchCar(true))">
+            <button type="button" class="btn btn-light" @onclick="@(() => SwitchCar(true))">
                 <figure class="figure">
                     <figcaption class="figure-caption"><span class="oi oi-arrow-thick-right" /></figcaption>
                     <figcaption class="figure-caption">@NextCar.Name</figcaption>
@@ -41,7 +41,7 @@
     else
     {
         <img class="img-top" src="./Images/lemon.png">
-        <h2>The provided VIN in the URL doesn't seem to match any of our current vehicles.</h2>
+        <h2>The provided VIN (@VIN) in the URL doesn't seem to match any of our current vehicles.</h2>
         <h2>Go back to our main page to find the vehicle you expected or double check the URL.</h2>
     }
 </div>
@@ -49,43 +49,42 @@
 
 @functions {
     [Parameter]
-    private string VIN { get; set; }
+    public string VIN { get; set; }
     [CascadingParameter]
-    private Car[] Cars { get; set; }
-    private Car Car { get { return Cars[mod(index, Cars.Length)]; } }
-    private Car PreviousCar { get { return Cars[mod(index - 1, Cars.Length)]; } }
-    private Car NextCar { get { return Cars[mod(index + 1, Cars.Length)]; } }
+    private CarManager CarManager { get; set; }
+    private Car CurrentCar { get { return CarManager.Cars[mod(index, CarManager.Cars.Length)]; } }
+    private Car PreviousCar { get { return CarManager.Cars[mod(index - 1, CarManager.Cars.Length)]; } }
+    private Car NextCar { get { return CarManager.Cars[mod(index + 1, CarManager.Cars.Length)]; } }
     private int index = -1;
 
-    protected override void OnInit()
-    {
-        for (int i = 0; i < Cars.Length; i++)
-        {
-            if (Cars[i].VIN == VIN)
-            {
-                index = i;
-                return;
-            }
-        }
-    }
-
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         //initially scroll to top
         await JSRuntime.InvokeAsync<string>("scrollTo", 0, 0);
     }
 
+    protected override void OnInitialized()
+    {
+        for (int i = 0; i < CarManager.Cars.Length; i++)
+        {
+            if (CarManager.Cars[i].VIN == VIN)
+            {
+                index = i;
+                return;
+            }
+        }
+
+        StateHasChanged();
+    }
+
     private void SwitchCar(bool toNext)
     {
         if (toNext)
-        {
-            index = mod(index + 1, Cars.Length);
-        }
+            index = mod(index + 1, CarManager.Cars.Length);
         else
-        {
-            index = mod(index - 1, Cars.Length);
-        }
-        uriHelper.NavigateTo("/" + Car.VIN);
+            index = mod(index - 1, CarManager.Cars.Length);
+
+        uriHelper.NavigateTo("/" + CurrentCar.VIN);
     }
 
     int mod(int x, int m)

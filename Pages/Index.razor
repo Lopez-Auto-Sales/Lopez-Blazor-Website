@@ -4,20 +4,21 @@
 <h1>Inventory</h1>
 <div class="btn-toolbar" role="toolbar">
     <div class="btn-group" role="group">
-        <button type="button" class="@ButtonCSS[0]" onclick="@(e => SortCars(SortMethod.HighestPrice))">Highest Price</button>
-        <button type="button" class="@ButtonCSS[1]" onclick="@(e => SortCars(SortMethod.LowestPrice))">Lowest Price</button>
-        <button type="button" class="@ButtonCSS[2]" onclick="@(e => SortCars(SortMethod.HighestMileage))">Highest Mileage</button>
-        <button type="button" class="@ButtonCSS[3]" onclick="@(e => SortCars(SortMethod.LowestMileage))">Lowest Mileage</button>
+        <button type="button" class="@ButtonCSS[0]" @onclick="@(() => SortCars(SortMethod.HighestPrice))">Highest Price</button>
+        <button type="button" class="@ButtonCSS[1]" @onclick="@(() => SortCars(SortMethod.LowestPrice))">Lowest Price</button>
+        <button type="button" class="@ButtonCSS[2]" @onclick="@(() => SortCars(SortMethod.HighestMileage))">Highest Mileage</button>
+        <button type="button" class="@ButtonCSS[3]" @onclick="@(() => SortCars(SortMethod.LowestMileage))">Lowest Mileage</button>
     </div>
 </div>
 <div class="figures">
-    @foreach (Car car in Cars)
+    @foreach (Car car in CarManager.Cars)
     {
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <button type="button" class="btn btn-light" onclick="@(e => RouteTo(car.VIN))">
+            <button type="button" class="btn btn-light" @onclick="@(()=> RouteTo(car.VIN))">
                 <figure class="figure">
                     <figcaption class="figure-caption text-align-left">@car.Name</figcaption>
                     <figcaption class="figure-caption text-align-left">$@car.Price.ToString("N0")</figcaption>
+                    <figcaption class="figure-caption text-align-left">@car.MileageString miles</figcaption>
                     <img src="@car.Path" height="200" width="200" class="figure-img img-fluid rounded" />
                 </figure>
             </button>
@@ -27,9 +28,7 @@
 
 @functions {
     [CascadingParameter]
-    private Car[] Cars { get; set; }
-    [CascadingParameter]
-    private MainLayout layout { get; set; }
+    private CarManager CarManager { get; set; }
     //initially sorted by highest price defined in mainlayout.razor
     private string[] ButtonCSS = new string[4];
 
@@ -38,9 +37,9 @@
         uriHelper.NavigateTo("/" + path);
     }
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
-        UpdateCSS(layout.SortedMethod);
+        UpdateCSS(CarManager.SortMethod);
     }
 
     private void UpdateCSS(SortMethod method)
@@ -58,9 +57,10 @@
         }
     }
 
-    private void SortCars(SortMethod method)
+    internal void SortCars(SortMethod method)
     {
         UpdateCSS(method);
-        layout.SortCars(method);
+        CarManager.SortCars(method);
+        StateHasChanged();
     }
 }
