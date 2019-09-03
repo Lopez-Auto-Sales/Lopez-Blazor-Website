@@ -7,5 +7,3 @@ Website updates are handled with Azure Pipelines (Continuous Integration) and up
 Inventory updates are handled via a different repository [here](https://github.com/lopezautosales/Lopez-Cars).
 
 To view the website [click here](http://lopezautosales.com).
-
-[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
