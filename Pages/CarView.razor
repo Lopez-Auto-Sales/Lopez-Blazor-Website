@@ -1,7 +1,7 @@
 ﻿@page "/{VIN}"
 @inject HttpClient Http;
 @inject IJSRuntime JSRuntime
-@inject IUriHelper uriHelper
+@inject NavigationManager navManager
 
 <div class="view ml-auto mr-auto">
     @if (CurrentCar != null)
@@ -22,20 +22,23 @@
             }
         </ul>
         <div class="figures justify-content-between">
-            <button type="button" class="btn btn-light" @onclick="@(() => SwitchCar(false))">
-                <figure class="figure">
-                    <figcaption class="figure-caption"><span class="oi oi-arrow-thick-left" /></figcaption>
-                    <figcaption class="figure-caption">@PreviousCar.Name</figcaption>
-                    <img src="@PreviousCar.Path" class="figure-img rounded" width="125">
-                </figure>
-            </button>
-            <button type="button" class="btn btn-light" @onclick="@(() => SwitchCar(true))">
-                <figure class="figure">
-                    <figcaption class="figure-caption"><span class="oi oi-arrow-thick-right" /></figcaption>
-                    <figcaption class="figure-caption">@NextCar.Name</figcaption>
-                    <img src="@NextCar.Path" class="figure-img rounded" width="125">
-                </figure>
-            </button>
+            @if (CarManager.Cars.Length != 1)
+            {
+                <button type="button" class="btn btn-light" @onclick="@(() => SwitchCar(false))">
+                    <figure class="figure">
+                        <figcaption class="figure-caption"><span class="oi oi-arrow-thick-left" /></figcaption>
+                        <figcaption class="figure-caption">@PreviousCar.Name</figcaption>
+                        <img src="@PreviousCar.Path" class="figure-img rounded" width="125">
+                    </figure>
+                </button>
+                <button type="button" class="btn btn-light" @onclick="@(() => SwitchCar(true))">
+                    <figure class="figure">
+                        <figcaption class="figure-caption"><span class="oi oi-arrow-thick-right" /></figcaption>
+                        <figcaption class="figure-caption">@NextCar.Name</figcaption>
+                        <img src="@NextCar.Path" class="figure-img rounded" width="125">
+                    </figure>
+                </button>
+            }
         </div>
     }
     else
@@ -52,39 +55,36 @@
     public string VIN { get; set; }
     [CascadingParameter]
     private CarManager CarManager { get; set; }
-    private Car CurrentCar { get { return CarManager.Cars[mod(index, CarManager.Cars.Length)]; } }
-    private Car PreviousCar { get { return CarManager.Cars[mod(index - 1, CarManager.Cars.Length)]; } }
-    private Car NextCar { get { return CarManager.Cars[mod(index + 1, CarManager.Cars.Length)]; } }
-    private int index = -1;
+    private Car CurrentCar { get; set; }
+    private Car PreviousCar { get; set; }
+    private Car NextCar { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        //initially scroll to top
         await JSRuntime.InvokeAsync<string>("scrollTo", 0, 0);
     }
 
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
-        for (int i = 0; i < CarManager.Cars.Length; i++)
+        int length = CarManager.Cars.Length;
+        for (int i = 0; i < length; i++)
         {
             if (CarManager.Cars[i].VIN == VIN)
             {
-                index = i;
-                return;
+                PreviousCar = CarManager.Cars[mod(i - 1, length)];
+                CurrentCar = CarManager.Cars[i];
+                NextCar = CarManager.Cars[mod(i + 1, length)];
+                break;
             }
         }
-
-        StateHasChanged();
     }
 
     private void SwitchCar(bool toNext)
     {
         if (toNext)
-            index = mod(index + 1, CarManager.Cars.Length);
+            navManager.NavigateTo("/" + NextCar.VIN);
         else
-            index = mod(index - 1, CarManager.Cars.Length);
-
-        uriHelper.NavigateTo("/" + CurrentCar.VIN);
+            navManager.NavigateTo("/" + PreviousCar.VIN);
     }
 
     int mod(int x, int m)
