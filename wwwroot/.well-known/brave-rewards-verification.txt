@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: lopezautosales.com
+Token: 2f7e4b823e508a4df1dc188b1f5295286a904712970be82e986ffb7fb9787901

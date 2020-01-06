@@ -1,5 +1,5 @@
 ﻿@page "/"
-@inject NavigationManager navManager
+@inject NavigationManager nav
 
 <h1>Inventory</h1>
 <div class="btn-toolbar" role="toolbar">
@@ -34,7 +34,7 @@
 
     private void RouteTo(string path)
     {
-        navManager.NavigateTo("/" + path);
+        nav.NavigateTo("/" + path);
     }
 
     protected override void OnInitialized()
