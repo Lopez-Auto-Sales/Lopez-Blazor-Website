@@ -18,11 +18,11 @@ html, body, app {
         display: flex;
         align-items: center;
         margin-right: auto;
-        margin-left:auto;
+        margin-left: auto;
         flex-wrap: wrap;
     }
 
-        .navbar .navbar-brand img{
+        .navbar .navbar-brand img {
             height: 3em;
             margin-right: .5em;
         }
@@ -38,22 +38,22 @@ html, body, app {
     padding: 1% 5%;
 }
 
-    .content h1{
+    .content h1 {
         text-align: center;
     }
 
-.btn-toolbar{
+.btn-toolbar {
     padding-bottom: 1%;
     display: block;
     text-align: center;
 }
 
-    .btn-toolbar .btn-group{
+    .btn-toolbar .btn-group {
         display: inline-block;
     }
 
 .nav-item {
-    margin-right:1%;
+    margin-right: 1%;
 }
 
     .nav-item a {
@@ -77,12 +77,12 @@ html, body, app {
     margin-right: auto;
 }
 
-    .navbar-nav .nav-link{
+    .navbar-nav .nav-link {
         padding-left: 1em;
         padding-right: 1em;
     }
 
-.jumbotron p{
+.jumbotron p {
     margin-bottom: 0;
 }
 
@@ -91,62 +91,62 @@ html, body, app {
     height: 30em;
 }
 
-    .resizable iframe{
+    .resizable iframe {
         width: 100%;
         height: 100%;
     }
 
-@media(max-width: 400px){
-    .navbar{
+@media(max-width: 400px) {
+    .navbar {
         padding: 0;
     }
 
-        .navbar .navbar-nav{
+        .navbar .navbar-nav {
             flex-direction: column;
             width: 80%;
             text-align: center;
         }
 }
 
-.view{
+.view {
     padding-left: 0;
     padding-right: 0;
     text-align: center;
 }
 
-    .view .list-header{
+    .view .list-header {
         font-weight: bold;
     }
 
-    .view .list-group-item{
+    .view .list-group-item {
         display: inline-block;
     }
 
-    .view .img-top{
+    .view .img-top {
         max-width: 720px;
         width: 100%;
     }
 
-.text-align-left{
+.text-align-left {
     text-align: left;
 }
 
-.figures{
+.figures {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
 }
-    
-    .figures .figure, .figures .figure-img{
+
+    .figures .figure, .figures .figure-img {
         margin: 0;
     }
 
-    .figures .btn, .prevnext .btn{
+    .figures .btn, .prevnext .btn {
         padding: 0;
         margin-bottom: 1em;
     }
 
-    .figures .figure-caption{
+    .figures .figure-caption {
         color: black;
     }
 
@@ -154,18 +154,18 @@ footer {
     margin-bottom: .5em;
 }
 
-    footer p{
+    footer p {
         margin: 0;
         text-align: center;
         font-size: small;
     }
 
-    footer a, footer a:hover, footer a:focus{
+    footer a, footer a:hover, footer a:focus {
         color: black;
         text-decoration: none;
     }
 
-.lastmodified{
+.lastmodified {
     font-size: x-small;
     margin-left: 1%;
 }
